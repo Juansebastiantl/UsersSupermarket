@@ -41,10 +41,10 @@ public class Model {
         this.userType = userType;
     }
     
-    public String getpoints() {
+    public String getPoints() {
         return points;
     }
-    public void setpoints(String points) {
+    public void setPoints(String points) {
         this.points = points;
     }
     

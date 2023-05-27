@@ -17,7 +17,7 @@ public class AdministratorSQL {
     private String user = "root";
     private String passw = "1234";
     private String url = "jdbc:mysql://localhost:3306";
-    private String database = "db_miercoles";
+    private String database = "db_supermarket";
     String[] datos_obtenidos = new String[100];
     //List<String> listaResultados = Arrays.asList();
     ArrayList<String> listaResultados = new ArrayList<>();
@@ -36,9 +36,10 @@ public class AdministratorSQL {
         
     }
     
-    public void register(String name, int id, String date){
+    public void register(String usertype,  String name, int id, String date, String points){
+   // public void register(String name, int id, String date){
         try {
-        String instruction = "INSERT INTO users VALUES('"+ name +"', "+ id + ",'"+ date +" ')";
+        String instruction = "INSERT INTO users VALUES('"+ usertype +"','"+ name +"', "+ id + ",'"+ date +" ','"+ points +" ')";
         obj_connection.prepareStatement(instruction).execute();
         JOptionPane.showMessageDialog(null, "User Registered");
         } catch (SQLException err){
@@ -54,15 +55,21 @@ public class AdministratorSQL {
         String fullname = "";
         String id = "";
         String birthday = "";
+        String userType = "";
+        String points = "";
         var registro = obj_connection.prepareStatement(instruction).executeQuery();
         datos_obtenidos[0] = "A";
          while (registro.next()) {
-             fullname = registro.getString(1);
-             id = registro.getString(2);
-             birthday = registro.getString(3);
+             userType = registro.getString(1);
+             fullname = registro.getString(2);
+             id = registro.getString(3);
+             birthday = registro.getString(4);
+             points = registro.getString(5);
+             listaResultados.add(userType);
              listaResultados.add(fullname);
              listaResultados.add(id);
              listaResultados.add(birthday);
+             listaResultados.add(points);
            // JOptionPane.showMessageDialog(null,(ejemploLista.get(1).get(1)));
             }
         return listaResultados;

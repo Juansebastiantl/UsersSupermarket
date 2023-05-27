@@ -43,9 +43,11 @@ public class Control {
     }
     
     private void establish_user (){
+        obj_model.setuserType(obj_view.optionClient.getSelectedItem().toString());
         obj_model.setName(obj_view.txtName.getText());
         obj_model.setId(Integer.parseInt(obj_view.txtId.getText()));
         obj_model.setDate(obj_view.optionDay.getSelectedItem()+"-" +obj_view.optionMonth.getSelectedItem() + "-" + obj_view.optionYear.getSelectedItem());
+        obj_model.setPoints(obj_view.txtPoints.getText());
     }
     
     ActionListener btn_register = new ActionListener(){
@@ -53,7 +55,7 @@ public class Control {
         public void actionPerformed(ActionEvent e){
             if(confirmation){
             establish_user();
-            obj_AdministratorSQL.register(obj_model.getName(), obj_model.getId(), obj_model.getDate());
+            obj_AdministratorSQL.register(obj_model.getuserType(),obj_model.getName(), obj_model.getId(), obj_model.getDate(), obj_model.getPoints());
             }
             else{
             JOptionPane.showMessageDialog(null, "Is not possible register the user because there is an error in the connecion database");
@@ -71,8 +73,9 @@ public class Control {
                listaResultados = obj_AdministratorSQL.consult();
                for(int i = 0 ; i < listaResultados.size() ; i++ ){
                         espacio= espacio +1;
-                        builder.append(listaResultados.get(i) + " ");
-                        if(espacio==3)
+                        builder.append(listaResultados.get(i));
+                        builder.append(" ");
+                        if(espacio==5)
                         {
                             builder.append("\n");
                             espacio=0;
