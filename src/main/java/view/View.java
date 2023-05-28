@@ -65,7 +65,7 @@ public class View extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanel1.setBackground(new java.awt.Color(153, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(51, 255, 153));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel1.setText("Nombre");
@@ -179,7 +179,7 @@ public class View extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Register", jPanel1);
 
-        jPanel2.setBackground(new java.awt.Color(153, 255, 255));
+        jPanel2.setBackground(new java.awt.Color(51, 153, 255));
 
         btnConsult.setBackground(new java.awt.Color(51, 102, 255));
         btnConsult.setText("Consult");
@@ -247,7 +247,7 @@ public class View extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Consult", jPanel2);
 
-        jPanel3.setBackground(new java.awt.Color(153, 255, 255));
+        jPanel3.setBackground(new java.awt.Color(204, 153, 0));
 
         optionClientConsult.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cliente_regular", "Cliente_premium", "Empleado_regular", "Empleado_administrador", " ", " " }));
 
