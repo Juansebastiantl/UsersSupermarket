@@ -48,7 +48,4 @@ public class Model {
         this.points = points;
     }
     
-
-    
- 
 }
