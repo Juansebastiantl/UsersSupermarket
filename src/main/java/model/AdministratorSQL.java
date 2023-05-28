@@ -18,7 +18,7 @@ public class AdministratorSQL {
 
     private Connection obj_connection;
     private String user = "root";
-    private String passw = "1234";
+    private String passw = "camilo";
     private String url = "jdbc:mysql://localhost:3306";
     private String database = "db_supermarket";
     String[] datos_obtenidos = new String[100];
@@ -51,6 +51,7 @@ public class AdministratorSQL {
     }
 
     public ArrayList<String> consult() {
+        listaResultados.clear();
         try {
             String instruction = "SELECT * FROM users;";
             String fullname = "";
@@ -82,6 +83,7 @@ public class AdministratorSQL {
     }
     
     public ArrayList<String> consultCargo(String usertype) {
+        listaResultadosByUser.clear();
          try {
             String instruction = "SELECT * FROM db_supermarket.users WHERE usertype = '"+ usertype +"';";
             String fullname = "";

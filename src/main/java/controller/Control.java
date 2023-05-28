@@ -56,6 +56,11 @@ public class Control {
     private void establish_user_consult() {
          obj_model.setuserType(obj_view.optionClientConsult.getSelectedItem().toString());
     }
+    
+    public void cleanTxtArea() {
+        obj_view.txtResult1.setText(null);
+        obj_view.txtResult2.setText(null);
+    }
 
     ActionListener btn_register = new ActionListener() {
         @Override
@@ -76,6 +81,7 @@ public class Control {
             StringBuilder builder = new StringBuilder();
             int espacio = 0;
             if (confirmation) {
+                cleanTxtArea();
                 listaResultados = obj_AdministratorSQL.consult();
                 for (int i = 0; i < listaResultados.size(); i++) {
                     espacio = espacio + 1;
@@ -101,8 +107,8 @@ public class Control {
             StringBuilder builder = new StringBuilder();
             int espacio = 0;
             if (confirmation) {
+                cleanTxtArea();
                 listaResultadosByUsers = obj_AdministratorSQL.consultCargo(obj_model.getuserType());
-                System.out.print(listaResultadosByUsers);
                 for (int i = 0; i < listaResultadosByUsers.size(); i++) {
                     espacio = espacio + 1;
                     builder.append(listaResultadosByUsers.get(i));
