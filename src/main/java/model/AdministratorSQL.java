@@ -18,7 +18,7 @@ public class AdministratorSQL {
 
     private Connection obj_connection;
     private String user = "root";
-    private String passw = "camilo";
+    private String passw = "1234";
     private String url = "jdbc:mysql://localhost:3306";
     private String database = "db_supermarket";
     String[] datos_obtenidos = new String[100];
