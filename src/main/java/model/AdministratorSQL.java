@@ -26,6 +26,11 @@ public class AdministratorSQL {
     ArrayList<String> listaResultados = new ArrayList<>();
     ArrayList<String> listaResultadosByUser = new ArrayList<>();
     //List<List<String>> ejemploLista = new ArrayList<List<String>>();
+    private String fullname = "";
+    private String id = "";
+    private String birthday = "";
+    private String userType = "";
+    private String points = "";
 
     public boolean connect() {
         try {
@@ -54,11 +59,6 @@ public class AdministratorSQL {
         listaResultados.clear();
         try {
             String instruction = "SELECT * FROM users;";
-            String fullname = "";
-            String id = "";
-            String birthday = "";
-            String userType = "";
-            String points = "";
             var registro = obj_connection.prepareStatement(instruction).executeQuery();
             datos_obtenidos[0] = "A";
             while (registro.next()) {
@@ -86,11 +86,7 @@ public class AdministratorSQL {
         listaResultadosByUser.clear();
          try {
             String instruction = "SELECT * FROM db_supermarket.users WHERE usertype = '"+ usertype +"';";
-            String fullname = "";
-            String id = "";
-            String birthday = "";
-            String userType = "";
-            String points = "";
+           
             var registro = obj_connection.prepareStatement(instruction).executeQuery();
             datos_obtenidos[0] = "A";
             while (registro.next()) {
@@ -112,6 +108,10 @@ public class AdministratorSQL {
             JOptionPane.showMessageDialog(null, err);
             return listaResultadosByUser;
         }
+    }
+    
+    public void iniciar(){
+
     }
     
 }
